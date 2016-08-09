@@ -1,0 +1,43 @@
+<h1>Your Tasks List</h1>
+
+<h2>To-Do</h2>
+
+<ul>
+  {{#each tasks}}
+    {{#unless this.completed}}
+      <li>
+        {{this.task}}
+
+        <form action="tasks/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="completed" value="true">
+          <button type="submit">Completed</button>
+        </form>
+
+{{!--         {{> cats/delete-cat}} --}}
+      </li>
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Completed</h2>
+
+<ul>
+  {{#each tasks}}
+    {{#if this.completed}}
+      <li>
+        {{this.task}}
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Task</h2>
+<form class="create-update-form" action="tasks/create" method="POST">
+
+  <div class="form-group">
+    <label for="newTask">Task Name:</label>
+    <input type="text" id="newTask" name="name">
+  </div>
+
+  <button type="submit">Add Task</button>
+</form>
