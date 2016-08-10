@@ -6,6 +6,10 @@ var task = require('../models/task.js');
 
 var router = express.Router();
 
+router.get('../public/assets/css/styles.css', function(req, res){
+  res.sendFile(__dirname + '/public/assets/css/styles.css');
+});
+
 router.get('/', function(req, res) {
   res.redirect('/tasks');
 });

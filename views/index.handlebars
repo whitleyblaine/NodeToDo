@@ -1,43 +1,52 @@
-<h1>Your Tasks List</h1>
+<div class="container text-center">
 
-<h2>To-Do</h2>
+  <h1>Your Tasks List</h1>
 
-<ul>
-  {{#each tasks}}
-    {{#unless this.completed}}
-      <li>
-        {{this.task}}
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>To-Do</h2>
+      <ul class="list-group">
+        {{#each tasks}}
+          {{#unless this.completed}}
+            <li class="list-group-item">
+              <h4>{{this.task}}</h4>
 
-        <form action="tasks/update/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="completed" value="true">
-          <button type="submit">Completed</button>
-        </form>
+              <form action="tasks/update/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="completed" value="true">
+                <button type="submit" class="btn btn-lg btn-default">Completed</button>
+              </form>
 
-{{!--         {{> cats/delete-cat}} --}}
-      </li>
-    {{/unless}}
-  {{/each}}
-</ul>
+      {{!--         {{> cats/delete-cat}} --}}
+            </li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
 
-<h2>Completed</h2>
+    <div class="col-sm-4">
+      <h2>Completed</h2>
+      <ul class="list-group">
+        {{#each tasks}}
+          {{#if this.completed}}
+            <li class="list-group-item">
+              <h4>{{this.task}}</h4>
+            </li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
 
-<ul>
-  {{#each tasks}}
-    {{#if this.completed}}
-      <li>
-        {{this.task}}
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
+    <div class="col-sm-4">
+      <h2>Add a Task</h2>
+      <form action="tasks/create" method="POST" id="addForm">
 
-<h2>Add a Task</h2>
-<form class="create-update-form" action="tasks/create" method="POST">
+        <div class="form-group">
+          <label for="newTask">Task Name:</label>
+          <input type="text" id="newTask" name="name">
+        </div>
 
-  <div class="form-group">
-    <label for="newTask">Task Name:</label>
-    <input type="text" id="newTask" name="name">
+        <button type="submit">Add Task</button>
+      </form>
+    </div>
   </div>
-
-  <button type="submit">Add Task</button>
-</form>
+</div>

@@ -6,8 +6,26 @@ Here is the main HTML where handlebars will render to
 <html lang="en">
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/assets/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../public/assets/css/styles.css" type="text/css"/>
     <title>TasksApp</title>
+    <style>
+      body {
+        background-color: white;
+      }
+      h1, h2{
+        color: #008ab8;
+      }
+      .btn {
+        color: #008ab8;
+      }
+      ul {
+        margin: 0 auto;
+      }
+      #addForm {
+        border: 1px solid #ddd;
+        padding: 3em;
+      }
+    </style>
   </head>
   <body>
     {{{ body }}}
