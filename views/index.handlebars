@@ -4,6 +4,18 @@
 
   <div class="row">
     <div class="col-sm-4">
+      <h2>Add a Task</h2>
+      <form action="tasks/create" method="POST" id="addForm">
+
+        <div class="form-group">
+          <label for="newTask">Task Name:</label>
+          <input type="text" id="newTask" name="name">
+        </div>
+
+        <button type="submit">Add Task</button>
+      </form>
+    </div>
+    <div class="col-sm-4">
       <h2>To-Do</h2>
       <ul class="list-group">
         {{#each tasks}}
@@ -35,18 +47,4 @@
         {{/each}}
       </ul>
     </div>
-
-    <div class="col-sm-4">
-      <h2>Add a Task</h2>
-      <form action="tasks/create" method="POST" id="addForm">
-
-        <div class="form-group">
-          <label for="newTask">Task Name:</label>
-          <input type="text" id="newTask" name="name">
-        </div>
-
-        <button type="submit">Add Task</button>
-      </form>
-    </div>
-  </div>
 </div>
