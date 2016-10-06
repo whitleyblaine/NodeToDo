@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "RCB Week 14 Homework (Node Express Handlebars)",
   "main": "server.js",
+  "engines": {
+    "node": "6.6.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
